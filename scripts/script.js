@@ -56,29 +56,6 @@ function populate(clickedId) {
     display.textContent = totalFormatted;
   }
 
-  switch (clickedId) {
-    case "add":
-      operator.unshift("+");
-      display.textContent = "0";
-      return operatorClicked++;
-    case "subtract":
-      operator.unshift("-");
-      display.textContent = "0";
-      return operatorClicked++;
-    case "multiply":
-      operator.unshift("*");
-      display.textContent = "0";
-      return operatorClicked++;
-    case "divide":
-      operator.unshift("/");
-      display.textContent = "0";
-      return operatorClicked++;
-    case "remainder":
-      operator.unshift("%");
-      display.textContent = "0";
-      return operatorClicked++;
-  }
-
   if (clickedId !== "=") {
     if (operatorClicked === 0) {
       firstNumber += clickedId;
@@ -100,5 +77,30 @@ function populate(clickedId) {
         display.textContent = Number(secondNumber);
       }
     }
+  }
+}
+
+function findOperator(clickedId) {
+  switch (clickedId) {
+    case "add":
+      operator.unshift("+");
+      display.textContent = "0";
+      return operatorClicked++;
+    case "subtract":
+      operator.unshift("-");
+      display.textContent = "0";
+      return operatorClicked++;
+    case "multiply":
+      operator.unshift("*");
+      display.textContent = "0";
+      return operatorClicked++;
+    case "divide":
+      operator.unshift("/");
+      display.textContent = "0";
+      return operatorClicked++;
+    case "remainder":
+      operator.unshift("%");
+      display.textContent = "0";
+      return operatorClicked++;
   }
 }
