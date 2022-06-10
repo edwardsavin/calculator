@@ -50,7 +50,8 @@ function populate(clickedId) {
   let display = document.getElementById("display");
 
   if (clickedId === "=") {
-    total = firstNumber.toFixed(8);
+    const decimals = Math.pow(10, 8);
+    total = Math.round((firstNumber + Number.EPSILON) * decimals) / decimals;
     display.textContent = total;
   }
 
