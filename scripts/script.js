@@ -104,3 +104,15 @@ function findOperator(clickedId) {
       return operatorClicked++;
   }
 }
+
+function clearDisplay() {
+  let display = document.getElementById("display");
+
+  firstNumber = 0;
+  secondNumber = 0;
+  operator = [];
+  total = 0;
+  operatorClicked = 0;
+
+  display.textContent = "0";
+}
