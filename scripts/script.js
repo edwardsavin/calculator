@@ -2,7 +2,7 @@ let firstNumber = 0;
 let secondNumber = 0;
 let operator;
 let total = 0;
-let operatorClicked = false;
+let operatorClicked = 0;
 
 function add(a, b) {
   let c = a + b;
@@ -50,7 +50,7 @@ function populate(clickedId) {
   let display = document.getElementById("display");
 
   if (clickedId === "=") {
-    total = operate(Number(firstNumber), operator, Number(secondNumber));
+    total = firstNumber.toFixed(8);
     display.textContent = total;
   }
 
@@ -58,31 +58,47 @@ function populate(clickedId) {
     case "add":
       operator = "+";
       display.textContent = "0";
-      return (operatorClicked = true);
+      return operatorClicked++;
     case "subtract":
       operator = "-";
       display.textContent = "0";
-      return (operatorClicked = true);
+      return operatorClicked++;
     case "multiply":
       operator = "*";
       display.textContent = "0";
-      return (operatorClicked = true);
+      return operatorClicked++;
     case "divide":
       operator = "/";
       display.textContent = "0";
-      return (operatorClicked = true);
+      return operatorClicked++;
     case "remainder":
       operator = "%";
       display.textContent = "0";
-      return (operatorClicked = true);
+      return operatorClicked++;
   }
 
-  if (operatorClicked === false) {
+  if (operatorClicked === 0) {
     firstNumber += clickedId;
     display.textContent = Number(firstNumber);
-  } else {
+  } else if (operatorClicked === 1) {
     if (clickedId !== "=") {
       secondNumber += clickedId;
+      firstNumber = operate(
+        Number(firstNumber),
+        operator,
+        Number(secondNumber)
+      );
+      display.textContent = Number(secondNumber);
+    }
+  } else if (operatorClicked > 1) {
+    if (clickedId !== "=") {
+      secondNumber = 0;
+      secondNumber += clickedId;
+      firstNumber = operate(
+        Number(firstNumber),
+        operator,
+        Number(secondNumber)
+      );
       display.textContent = Number(secondNumber);
     }
   }
