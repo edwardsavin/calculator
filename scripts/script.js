@@ -1,3 +1,7 @@
+let firstNumber = 0;
+let secondNumber = 0;
+let total = 0;
+
 function add(a, b) {
   let c = a + b;
   return c;
@@ -37,5 +41,15 @@ function operate(a, x, b) {
       return remainder(a, b);
     default:
       console.log("Invalid operator");
+  }
+}
+
+function populate(clickedId) {
+  let display = document.getElementById("display");
+
+  if (clickedId === "=") {
+  } else {
+    firstNumber += clickedId;
+    display.textContent = Number(firstNumber);
   }
 }
