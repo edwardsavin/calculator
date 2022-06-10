@@ -78,29 +78,31 @@ function populate(clickedId) {
       return operatorClicked++;
   }
 
-  if (operatorClicked === 0) {
-    firstNumber += clickedId;
-    display.textContent = Number(firstNumber);
-  } else if (operatorClicked === 1) {
-    if (clickedId !== "=") {
-      secondNumber += clickedId;
-      firstNumber = operate(
-        Number(firstNumber),
-        operator,
-        Number(secondNumber)
-      );
-      display.textContent = Number(secondNumber);
-    }
-  } else if (operatorClicked > 1) {
-    if (clickedId !== "=") {
-      secondNumber = 0;
-      secondNumber += clickedId;
-      firstNumber = operate(
-        Number(firstNumber),
-        operator,
-        Number(secondNumber)
-      );
-      display.textContent = Number(secondNumber);
+  if (clickedId !== "=") {
+    if (operatorClicked === 0) {
+      firstNumber += clickedId;
+      display.textContent = Number(firstNumber);
+    } else if (operatorClicked === 1) {
+      if (clickedId !== "=") {
+        secondNumber += clickedId;
+        firstNumber = operate(
+          Number(firstNumber),
+          operator,
+          Number(secondNumber)
+        );
+        display.textContent = Number(secondNumber);
+      }
+    } else if (operatorClicked > 1) {
+      if (clickedId !== "=") {
+        secondNumber = 0;
+        secondNumber += clickedId;
+        firstNumber = operate(
+          Number(firstNumber),
+          operator,
+          Number(secondNumber)
+        );
+        display.textContent = Number(secondNumber);
+      }
     }
   }
 }
