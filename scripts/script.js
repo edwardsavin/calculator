@@ -1,6 +1,3 @@
-let a;
-let b;
-
 function add(a, b) {
   let c = a + b;
   return c;
@@ -21,6 +18,11 @@ function divide(a, b) {
   return c;
 }
 
+function remainder(a, b) {
+  let c = a % b;
+  return c;
+}
+
 function operate(a, x, b) {
   switch (x) {
     case "+":
@@ -31,6 +33,8 @@ function operate(a, x, b) {
       return multiply(a, b);
     case "/":
       return divide(a, b);
+    case "%":
+      return remainder(a, b);
     default:
       console.log("Invalid operator");
   }
