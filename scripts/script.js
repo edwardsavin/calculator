@@ -3,6 +3,8 @@ let secondNumber = 0;
 let operator = [];
 let total = 0;
 let operatorClicked = 0;
+let operatorOnOff = false;
+const display = document.getElementById("display");
 
 function add(a, b) {
   let c = a + b;
@@ -47,8 +49,6 @@ function operate(a, x, b) {
 }
 
 function populate(clickedId) {
-  let display = document.getElementById("display");
-
   if (clickedId === "=") {
     const decimals = Math.pow(10, 8);
     total = operate(Number(firstNumber), operator[0], Number(secondNumber));
@@ -58,23 +58,35 @@ function populate(clickedId) {
 
   if (clickedId !== "=") {
     if (operatorClicked === 0) {
-      firstNumber += clickedId;
-      display.textContent = Number(firstNumber);
+      if (String(firstNumber).includes(".") && clickedId === ".") {
+      } else {
+        firstNumber += clickedId;
+        display.textContent = Number(firstNumber);
+      }
     } else if (operatorClicked === 1) {
       if (clickedId !== "=") {
-        secondNumber += clickedId;
-        display.textContent = Number(secondNumber);
+        if (String(secondNumber).includes(".") && clickedId === ".") {
+        } else {
+          secondNumber += clickedId;
+          display.textContent = Number(secondNumber);
+        }
       }
     } else if (operatorClicked > 1) {
       if (clickedId !== "=") {
-        firstNumber = operate(
-          Number(firstNumber),
-          operator[1],
-          Number(secondNumber)
-        );
-        secondNumber = 0;
-        secondNumber += clickedId;
-        display.textContent = Number(secondNumber);
+        if (operatorOnOff === true) {
+          operatorOnOff = false;
+          firstNumber = operate(
+            Number(firstNumber),
+            operator[1],
+            Number(secondNumber)
+          );
+          secondNumber = 0;
+        }
+        if (String(secondNumber).includes(".") && clickedId === ".") {
+        } else {
+          secondNumber += clickedId;
+          display.textContent = Number(secondNumber);
+        }
       }
     }
   }
@@ -85,29 +97,32 @@ function findOperator(clickedId) {
     case "add":
       operator.unshift("+");
       display.textContent = "0";
+      operatorOnOff = true;
       return operatorClicked++;
     case "subtract":
       operator.unshift("-");
       display.textContent = "0";
+      operatorOnOff = true;
       return operatorClicked++;
     case "multiply":
       operator.unshift("*");
       display.textContent = "0";
+      operatorOnOff = true;
       return operatorClicked++;
     case "divide":
       operator.unshift("/");
       display.textContent = "0";
+      operatorOnOff = true;
       return operatorClicked++;
     case "remainder":
       operator.unshift("%");
       display.textContent = "0";
+      operatorOnOff = true;
       return operatorClicked++;
   }
 }
 
 function clearDisplay() {
-  let display = document.getElementById("display");
-
   firstNumber = 0;
   secondNumber = 0;
   operator = [];
