@@ -51,9 +51,15 @@ function operate(a, x, b) {
 function populate(clickedId) {
   if (clickedId === "=") {
     const decimals = Math.pow(10, 8);
-    total = operate(Number(firstNumber), operator[0], Number(secondNumber));
-    totalFormatted = Math.round((total + Number.EPSILON) * decimals) / decimals;
-    display.textContent = totalFormatted;
+    if (secondNumber === 0) {
+      display.textContent = Number(firstNumber);
+    } else {
+      const decimals = Math.pow(10, 8);
+      total = operate(Number(firstNumber), operator[0], Number(secondNumber));
+      totalFormatted =
+        Math.round((total + Number.EPSILON) * decimals) / decimals;
+      display.textContent = totalFormatted;
+    }
   }
 
   if (clickedId !== "=") {
