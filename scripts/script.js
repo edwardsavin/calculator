@@ -63,6 +63,15 @@ function populate(clickedId) {
       if (clickedId === "erase") {
         firstNumber = firstNumber.slice(0, -1);
         display.textContent = Number(firstNumber);
+      }
+      if (clickedId === "plus-minus") {
+        if (firstNumber < 0) {
+          firstNumber = Math.abs(firstNumber);
+          display.textContent = Number(firstNumber);
+        } else {
+          firstNumber = -Math.abs(firstNumber);
+          display.textContent = Number(firstNumber);
+        }
       } else {
         firstNumber += clickedId;
         display.textContent = Number(firstNumber);
@@ -74,6 +83,15 @@ function populate(clickedId) {
         if (clickedId === "erase") {
           secondNumber = secondNumber.slice(0, -1);
           display.textContent = Number(secondNumber);
+        }
+        if (clickedId === "plus-minus") {
+          if (secondNumber < 0) {
+            secondNumber = Math.abs(secondNumber);
+            display.textContent = Number(secondNumber);
+          } else {
+            secondNumber = -Math.abs(secondNumber);
+            display.textContent = Number(secondNumber);
+          }
         } else {
           secondNumber += clickedId;
           display.textContent = Number(secondNumber);
@@ -95,6 +113,15 @@ function populate(clickedId) {
         if (clickedId === "erase") {
           secondNumber = secondNumber.slice(0, -1);
           display.textContent = Number(secondNumber);
+        }
+        if (clickedId === "plus-minus") {
+          if (secondNumber < 0) {
+            secondNumber = Math.abs(secondNumber);
+            display.textContent = Number(secondNumber);
+          } else {
+            secondNumber = -Math.abs(secondNumber);
+            display.textContent = Number(secondNumber);
+          }
         } else {
           secondNumber += clickedId;
           display.textContent = Number(secondNumber);
