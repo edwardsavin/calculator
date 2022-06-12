@@ -64,12 +64,10 @@ function populate(clickedId) {
   if (clickedId !== "=") {
     if (operatorClicked === 0) {
       if (String(firstNumber).includes(".") && clickedId === ".") {
-      }
-      if (clickedId === "erase") {
+      } else if (clickedId === "erase") {
         firstNumber = firstNumber.slice(0, -1);
         display.textContent = Number(firstNumber);
-      }
-      if (clickedId === "plus-minus") {
+      } else if (clickedId === "plus-minus") {
         if (firstNumber < 0) {
           firstNumber = Math.abs(firstNumber);
           display.textContent = Number(firstNumber);
@@ -84,12 +82,10 @@ function populate(clickedId) {
     } else if (operatorClicked === 1) {
       if (clickedId !== "=") {
         if (String(secondNumber).includes(".") && clickedId === ".") {
-        }
-        if (clickedId === "erase") {
+        } else if (clickedId === "erase") {
           secondNumber = secondNumber.slice(0, -1);
           display.textContent = Number(secondNumber);
-        }
-        if (clickedId === "plus-minus") {
+        } else if (clickedId === "plus-minus") {
           if (secondNumber < 0) {
             secondNumber = Math.abs(secondNumber);
             display.textContent = Number(secondNumber);
@@ -114,12 +110,10 @@ function populate(clickedId) {
           secondNumber = 0;
         }
         if (String(secondNumber).includes(".") && clickedId === ".") {
-        }
-        if (clickedId === "erase") {
+        } else if (clickedId === "erase") {
           secondNumber = secondNumber.slice(0, -1);
           display.textContent = Number(secondNumber);
-        }
-        if (clickedId === "plus-minus") {
+        } else if (clickedId === "plus-minus") {
           if (secondNumber < 0) {
             secondNumber = Math.abs(secondNumber);
             display.textContent = Number(secondNumber);
