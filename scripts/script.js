@@ -50,7 +50,6 @@ function operate(a, x, b) {
 
 function populate(clickedId) {
   if (clickedId === "=") {
-    const decimals = Math.pow(10, 8);
     if (secondNumber === 0) {
       display.textContent = Number(firstNumber);
     } else {
@@ -176,3 +175,67 @@ function clearDisplay() {
 
   display.textContent = "0";
 }
+
+document.addEventListener("keydown", (event) => {
+  const keyName = event.key;
+
+  switch (keyName) {
+    case "0":
+      populate("0");
+      break;
+    case "1":
+      populate("1");
+      break;
+    case "2":
+      populate("2");
+      break;
+    case "3":
+      populate("3");
+      break;
+    case "4":
+      populate("4");
+      break;
+    case "5":
+      populate("5");
+      break;
+    case "6":
+      populate("6");
+      break;
+    case "7":
+      populate("7");
+      break;
+    case "8":
+      populate("8");
+      break;
+    case "9":
+      populate("9");
+      break;
+    case "Enter":
+      populate("=");
+      break;
+    case "=":
+      populate("=");
+      break;
+    case ".":
+      populate(".");
+      break;
+    case "Backspace":
+      populate("erase");
+      break;
+    case "+":
+      findOperator("add");
+      break;
+    case "-":
+      findOperator("subtract");
+      break;
+    case "*":
+      findOperator("multiply");
+      break;
+    case "/":
+      findOperator("divide");
+      break;
+    case "%":
+      findOperator("remainder");
+      break;
+  }
+});
