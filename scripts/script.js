@@ -49,7 +49,7 @@ function operate(a, x, b) {
 }
 
 function populate(clickedId) {
-  if (clickedId === "=") {
+  if (clickedId === "equal") {
     if (secondNumber === 0) {
       display.textContent = Number(firstNumber);
     } else {
@@ -61,7 +61,7 @@ function populate(clickedId) {
     }
   }
 
-  if (clickedId !== "=") {
+  if (clickedId !== "equal") {
     if (operatorClicked === 0) {
       if (String(firstNumber).includes(".") && clickedId === ".") {
       } else if (clickedId === "erase") {
@@ -80,7 +80,7 @@ function populate(clickedId) {
         display.textContent = Number(firstNumber);
       }
     } else if (operatorClicked === 1) {
-      if (clickedId !== "=") {
+      if (clickedId !== "equal") {
         if (String(secondNumber).includes(".") && clickedId === ".") {
         } else if (clickedId === "erase") {
           secondNumber = secondNumber.slice(0, -1);
@@ -99,7 +99,7 @@ function populate(clickedId) {
         }
       }
     } else if (operatorClicked > 1) {
-      if (clickedId !== "=") {
+      if (clickedId !== "equal") {
         if (operatorOnOff === true) {
           operatorOnOff = false;
           firstNumber = operate(
@@ -234,3 +234,7 @@ document.addEventListener("keydown", (event) => {
       break;
   }
 });
+
+function convertPoint() {
+  return populate(".");
+}
