@@ -168,6 +168,7 @@ function clearDisplay() {
   operatorClicked = 0;
 
   display.textContent = "0";
+  document.activeElement.blur();
 }
 
 document.addEventListener("keydown", (event) => {
