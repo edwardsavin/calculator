@@ -206,10 +206,10 @@ document.addEventListener("keydown", (event) => {
       populate("9");
       break;
     case "Enter":
-      populate("=");
+      populate("equal");
       break;
     case "=":
-      populate("=");
+      populate("equal");
       break;
     case ".":
       populate(".");
